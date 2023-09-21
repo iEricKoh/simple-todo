@@ -1,11 +1,10 @@
 import { useCallback, useContext } from "react"
 import { TodoActionKind } from "../../enums/priority"
-import { TodosContext, TodosDispatchContext } from "../../hooks/useTodos"
+import { TodosContext } from "../../hooks/useTodos"
 import { Todo } from "./Todo"
 
 export const Todos = () => {
-  const todos = useContext(TodosContext)
-  const dispatch = useContext(TodosDispatchContext)
+  const { todos, dispatch } = useContext(TodosContext)
 
   const dispatchAction = useCallback(
     (type: TodoActionKind.DEL_TODO | TodoActionKind.MARK_AS_DONE, id: string) =>

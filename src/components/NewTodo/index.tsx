@@ -1,14 +1,14 @@
 import classNames from "classnames"
 import { useContext, useState } from "react"
 import { Priority, TodoActionKind } from "../../enums/priority"
-import { TodosDispatchContext } from "../../hooks/useTodos"
 import { getTodoColorByPriority } from "../../utils/todo"
+import { TodosContext } from "../../hooks/useTodos"
 
 export const NewTodo = () => {
   const [label, setLabel] = useState("")
   const [priority, setPriority] = useState(Priority.Low)
 
-  const dispatch = useContext(TodosDispatchContext)
+  const { dispatch } = useContext(TodosContext)
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()

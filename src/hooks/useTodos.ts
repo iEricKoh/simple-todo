@@ -1,7 +1,9 @@
 import { createContext, Dispatch } from "react"
 import { initialState, TodosAction, TodosState } from "../reducers/todos"
 
-export const TodosContext = createContext<TodosState>(initialState)
-export const TodosDispatchContext = createContext<Dispatch<TodosAction>>(
-  () => null,
-)
+export const TodosContext = createContext<{
+  todos: TodosState
+  dispatch: Dispatch<TodosAction>
+}>({ todos: initialState, dispatch: () => {} })
+
+TodosContext.displayName = "TodosContext"
