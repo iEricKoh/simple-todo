@@ -6,8 +6,9 @@ import react from "@vitejs/plugin-react-swc"
 export default defineConfig({
   plugins: [react()],
   test: {
+    reporters: ["default"],
     coverage: {
-      provider: "istanbul", // or 'v8'
+      provider: "istanbul",
       enabled: true,
       reporter: "html",
     },
