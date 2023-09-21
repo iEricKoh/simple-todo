@@ -31,12 +31,16 @@ describe("New Todo", () => {
   })
 
   it("should select correct value on change", async () => {
-    const { getByText } = render(<NewTodo />)
+    render(<NewTodo />)
     fireEvent.change(screen.getByRole("combobox"), {
       target: { value: Priority.High },
     })
-    expect((getByText("Low") as HTMLOptionElement).selected).toBeFalsy()
-    expect((getByText("Medium") as HTMLOptionElement).selected).toBeFalsy()
-    expect((getByText("High") as HTMLOptionElement).selected).toBeTruthy()
+    expect((screen.getByText("Low") as HTMLOptionElement).selected).toBeFalsy()
+    expect(
+      (screen.getByText("Medium") as HTMLOptionElement).selected,
+    ).toBeFalsy()
+    expect(
+      (screen.getByText("High") as HTMLOptionElement).selected,
+    ).toBeTruthy()
   })
 })
